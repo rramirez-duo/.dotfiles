@@ -23,25 +23,26 @@
 #################################
 # Screen Brightness -
 #################################
-# macbook pro
+# Brightness down media key (faster brightness change)
 "light -U 10; sh ~/.xsetroot.sh"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
-# asus laptop
-"light -U 10; sh ~/.xsetroot.sh"
+# ctrl + F5 (slower detail brightness change)
+"light -U 1; sh ~/.xsetroot.sh"
     m:0x4 + c:71
     Control + F5
 
 #################################
 # Screen Brightness +
 #################################
-# macbook pro
+# Brightness up media key (faster brightness change)
 "light -A 10; sh ~/.xsetroot.sh"
     m:0x0 + c:233
     XF86MonBrightnessUp
-# asus laptop
-"light -A 10; sh ~/.xsetroot.sh"
+
+# ctrl + F6 (slower detail brightness change)
+"light -A 1; sh ~/.xsetroot.sh"
     m:0x4 + c:72
     Control + F6
 

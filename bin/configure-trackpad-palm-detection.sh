@@ -1,19 +1,48 @@
 #!/bin/bash
 
-# Logitech MX Anywhere 2
+# logitech mx anywhere
 xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95
-if [[ $(hostname -f) == "chromebook" ]]; then
-    # disable chromebook touchpad
-    xinput set-prop "Elan Touchpad" "Device Enabled" 0
-elif [[ $(hostname -f) == "XPS-15-9550" ]]; then
+
+if [[ $(hostname -f) == "XPS-15-9550" ]]; then
     # XPS 9550 touchpad
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Accel Speed" .55
-    xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Tapping Enabled" 0
+    TOUCHPAD="DLL06E4:01 06CB:7A13 Touchpad"
+    xinput set-prop ${TOUCHPAD} "libinput Natural Scrolling Enabled" 1
+    xinput set-prop ${TOUCHPAD} "libinput Click Method Enabled" 0 1
+    xinput set-prop ${TOUCHPAD} "libinput Accel Speed" .55
+    xinput set-prop ${TOUCHPAD} "libinput Tapping Enabled" 0
 elif [[ $(hostname -f) == "le-laptop" ]]; then
-    # ThinkPad T420 daily driver
-    xinput --disable "SynPS/2 Synaptics TouchPad"
+    # Thinkpad T420
+    TOUCHPAD="SynPS/2 Synaptics TouchPad"
+    xinput --disable ${TOUCHPAD}
+elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
+    set -e -x
+    # Thinkpad T470
+    TOUCHPAD="SynPS/2 Synaptics TouchPad"
+
+    #xinput --disable "$TOUCHPAD"
+    xinput --enable "$TOUCHPAD"
+
+    # Synaptics Palm Detection: on/off = 1/0
+    xinput set-prop "$TOUCHPAD" "Synaptics Palm Detection" 1
+
+    # Synaptics Palm Dimensions: 2 values: width, z depth
+    xinput set-prop "$TOUCHPAD" "Synaptics Palm Dimensions" 1, 100
+
+    # Synaptics Two-Finger Scrolling: 2 values: verticle, horizontal
+    xinput set-prop "$TOUCHPAD" "Synaptics Two-Finger Scrolling" 1, 1
+
+    # Synaptics Scrolling Distance: 2 values: verticle, horizontal
+    xinput set-prop "$TOUCHPAD" "Synaptics Scrolling Distance" -85, -85
+
+    # Scrolling Finger: 3 values: low, high, pressure
+    xinput set-prop "$TOUCHPAD" "Synaptics Finger" 25, 50, 0
+
+    # Synaptics Move Speed: 4 values: min, max, accel, <deprecated>
+    xinput set-prop "$TOUCHPAD" "Synaptics Move Speed" 1, 1.55, 1.3, 0
+
+    # Synaptics Soft Button Areas: 8 values (provide zeros to disable soft buttons)
+    xinput set-prop "$TOUCHPAD" "Synaptics Soft Button Areas" 0, 0, 0, 0, 0, 0, 0, 0
+
 else
     # older thinkpad trackpad config
     # source:
