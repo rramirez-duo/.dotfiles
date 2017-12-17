@@ -21,6 +21,19 @@ if [[ $hostname == 'chromebook' ]]; then
             --output HDMI2 --off \
             --output HDMI1 --off
     fi
+elif [[ $hostname == 'rramirez-ThinkPad-T470' ]]; then
+    if [[ $HOME_MONITOR == 1 ]]; then
+        sh ~/.screenlayout/home.sh
+    else
+        echo 'setting up display for T470'
+        xrandr \
+            --dpi 120 \
+            --output eDP-1 --mode 1920x1080 --rotate normal \
+            --output HDMI-1 --off \
+            --output HDMI-2 --off \
+            --output DP-1 --off \
+            --output DP-2 --off
+    fi
 elif [[ $hostname == 'XPS-15-9550' ]]; then
     if [[ $HOME_MONITOR == 1 ]]; then
         sh ~/.screenlayout/home.sh
@@ -28,9 +41,9 @@ elif [[ $hostname == 'XPS-15-9550' ]]; then
         echo 'setting up display for XPS-15-9550'
         xrandr \
             --dpi 96 \
-            --output HDMI-2 --off \
-            --output HDMI-1 --off \
             --output eDP-1 --mode 1920x1080 --rotate normal \
+            --output HDMI-1 --off \
+            --output HDMI-2 --off \
             --output DP-1 --off \
             --output DP-2 --off
     fi

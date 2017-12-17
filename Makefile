@@ -17,6 +17,7 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt-get install -y acpi lm-sensors
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst
+	sudo apt install -y arandr solaar
 
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter

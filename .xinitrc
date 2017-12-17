@@ -37,7 +37,9 @@ bash -c 'eject -i on /dev/sr0'
 
 # setup power saving
 sudo tlp start
-sh ~/bin/xps-15-power-saving.sh
+if [[ $(hostname -f) == 'XPS-15-9550' ]]; then
+    sh ~/bin/xps-15-power-saving.sh
+fi
 
 # if machine is a mac
 sh ~/bin/setup-mac.sh
@@ -48,7 +50,6 @@ nm-applet &
 # fix gnome terminal being able to launch on XPS 15 9550
 dbus-update-activation-environment --all
 
-# fix HiDPI on XPS 15 9550
 gsettings set org.gnome.desktop.interface scaling-factor 1
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1
@@ -56,6 +57,6 @@ export ELM_SCALE=1
 xrdb -merge ~/.Xresources
 
 # allow GTK apps to run even with wayland installed
-xhost +local:
+#xhost +local:
 
 exec i3
