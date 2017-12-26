@@ -229,3 +229,9 @@ firefox-with-java-client: oracle-java java-browser-plugin
 xps-9550-backlight-sleep-bug-fix:
 	sudo cp ./bin/97fixbacklight /lib/systemd/system-sleep/
 	sudo chmod 755 /lib/systemd/system-sleep/97fixbacklight
+
+keepassxc:
+	sudo add-apt-repository ppa:phoerious/keepassxc
+	sudo apt update
+	sudo apt install -qy keepassxc
+
