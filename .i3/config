@@ -164,7 +164,7 @@ bar {
 }
 
 # configure auto lock
-exec xautolock -time 3 -locker '~/bin/lock' &
+exec xautolock -time 5 -locker '~/bin/lock' &
 
 # set $mod Mod1
 set $mod2 Mod4
@@ -247,3 +247,5 @@ mode "mouse" {
 }
 
 bindsym $mod+$mod2+Shift+m mode "mouse"
+
+exec ~/bin/batt.sh

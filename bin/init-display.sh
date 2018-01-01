@@ -27,7 +27,7 @@ elif [[ $hostname == 'rramirez-ThinkPad-T470' ]]; then
     else
         echo 'setting up display for T470'
         xrandr \
-            --dpi 120 \
+            --dpi 96 \
             --output eDP-1 --mode 1920x1080 --rotate normal \
             --output HDMI-1 --off \
             --output HDMI-2 --off \

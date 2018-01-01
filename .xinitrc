@@ -59,4 +59,5 @@ xrdb -merge ~/.Xresources
 # allow GTK apps to run even with wayland installed
 #xhost +local:
 
+#exec i3 -c ~/.i3/i3status.conf
 exec i3

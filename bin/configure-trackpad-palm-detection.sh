@@ -19,8 +19,8 @@ elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
     # Thinkpad T470
     TOUCHPAD="SynPS/2 Synaptics TouchPad"
 
-    #xinput --disable "$TOUCHPAD"
-    xinput --enable "$TOUCHPAD"
+    xinput --disable "$TOUCHPAD"
+    #xinput --enable "$TOUCHPAD"
 
     # Synaptics Palm Detection: on/off = 1/0
     xinput set-prop "$TOUCHPAD" "Synaptics Palm Detection" 1
@@ -35,7 +35,7 @@ elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
     xinput set-prop "$TOUCHPAD" "Synaptics Scrolling Distance" -85, -85
 
     # Scrolling Finger: 3 values: low, high, pressure
-    xinput set-prop "$TOUCHPAD" "Synaptics Finger" 25, 50, 0
+    xinput set-prop "$TOUCHPAD" "Synaptics Finger" 40, 50, 0
 
     # Synaptics Move Speed: 4 values: min, max, accel, <deprecated>
     xinput set-prop "$TOUCHPAD" "Synaptics Move Speed" 1, 1.55, 1.3, 0

@@ -18,7 +18,7 @@ HIST_STAMPS="mm/dd/yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git encode64 jsontools redis-cli systemd vagrant rails ruby debian docker)
+plugins=(git encode64 jsontools redis-cli systemd vagrant debian docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,7 +122,7 @@ alias vpnoff='seq 2 | xargs -Iz sudo vpnc-disconnect;'
 alias hop='sshuttle --dns -vvr thinkhome 0/0'
 alias hopvultr='sshuttle --dns -vvr vultr 0/0'
 alias hoplinode='sshuttle --dns -vvr linode 0/0'
-alias ntfort='sh /opt/forticlient-sslvpn/forticlientsslvpn.sh'
+alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
 
 ### Python dev
 export WORKON_HOME=~/Envs
