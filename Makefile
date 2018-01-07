@@ -22,7 +22,7 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
 
-backlight:
+backlight-deb:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
 
@@ -46,8 +46,9 @@ spotify_ubuntu:
 	sudo apt-get install spotify-client
 
 update:
-	sudo apt-get update -y
-	sudo apt-get install -f -y
+	- sudo apt-get update -y
+	- sudo apt-get install -f -y
+	- sudo pacman -Syu --noconfirm
 
 macbookpro_keyboard:
 	echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode
@@ -56,6 +57,7 @@ macbookpro_keyboard:
 	xmodmap ~/.xmodmaprc
 
 dotFiles:
+	find ~/ -maxdepth 1 -iname '.*' -type f | xargs -I'{}' cp {} {}.pre-rueben-dotfiles
 	for f in .*; do test -f $$f && ln -sf "$$(pwd)/$$f" ~/$$f; done
 	ln -sf $$(pwd)/.xinitrc ~/.xsessionrc
 	ln -sf $$(pwd)/.i3 ~/.i3
@@ -65,16 +67,19 @@ dotFiles:
 	ln -sf $$(pwd)/.vimrc ~/.config/nvim/init.vim
 
 dev_packages: update
-	sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
-	sudo pip install virtualenvwrapper
+	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
+	- sudo pacman -S --noconfirm python python-pip curl xbindkeys vim git tig subversion git-svn iotop iftop htop tree nethogs
+	- sudo pip install virtualenvwrapper
 
 omz:
 	- sudo apt-get install -y curl zsh
+	- sudo pacman -S --noconfirm curl zsh
 	- curl -L http://install.ohmyz.sh | sh
 	- chsh -s /usr/bin/zsh
 
 vim: dotFiles customBins dev_packages
 	- sudo apt-get install -y vim-nox exuberant-ctags cmake python-dev fuse
+	- sudo pacman --noconfirm ctags cmake fuse3
 	- sudo modprobe fuse
 	- sudo usermod -aG fuse $$(whoami)
 	- sudo pip install --upgrade neovim
@@ -85,6 +90,7 @@ vim: dotFiles customBins dev_packages
 
 git:
 	- sudo apt-get install -y git tig
+	- sudo pacman -S --noconfirm git tig
 	- git config --global user.name "Rueben Ramirez"
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
@@ -235,3 +241,15 @@ keepassxc:
 	sudo apt update
 	sudo apt install -qy keepassxc
 
+
+remmina-arch:
+	sudo pacman -S --noconfirm remmina libvncserver freerdp
+
+print-windows-key:
+	sudo less /sys/firmware/acpi/tables/MSDM
+
+pacman-update:
+	# upgrade core packages
+	sudo pacman -Syu --noconfirm
+	# upgrade aur packages
+	yaourt -Syu --aur --noconfirm
