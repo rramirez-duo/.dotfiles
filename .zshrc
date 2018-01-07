@@ -41,6 +41,7 @@ alias lth='ls -lat | head'
 alias tmuxa='tmux a'
 alias celar='clear'
 alias os='cat /etc/*release*'
+alias machine-info="sudo dmidecode | egrep -i -A 3 'System Info'"
 alias xit='exit'
 alias htop='sudo htop'
 alias ports='sudo netstat -netpul'
@@ -127,7 +128,12 @@ alias ntfort='sudo openfortivpn -c /etc/openfortivpn/newtek-config'
 ### Python dev
 export WORKON_HOME=~/Envs
 mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ -e /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+if [[ -e /usr/bin/virtualenvwrapper.sh ]]; then
+    source /usr/bin/virtualenvwrapper.sh
+fi
 
 ### Node version manager (NVM)
 export NVM_DIR="/home/rramirez/.nvm"

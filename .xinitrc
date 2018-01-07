@@ -3,7 +3,7 @@ export BROWSER=google-chrome &
 
 # customize keymappings
 killall xbindkeys
-xbindkeys
+xbindkeys -f ~/.xbindkeysrc
 
 # config trackpad
 $HOME/bin/configure-trackpad-palm-detection.sh
