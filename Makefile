@@ -253,3 +253,13 @@ pacman-update:
 	sudo pacman -Syu --noconfirm
 	# upgrade aur packages
 	yaourt -Syu --aur --noconfirm
+
+virus-scan: update
+	- sudo apt install -qy clamav
+	- sudo pacman -S clamav --noconfirm
+	sudo freshclam
+	sudo clamscan -r /
+
+audit: update
+	sudo pacman -S lynis --noconfirm
+	lynis audit system -Q
