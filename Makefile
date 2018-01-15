@@ -68,7 +68,7 @@ dotFiles:
 
 dev_packages: update
 	- sudo apt-get install -y python python-pip python-dev curl xbindkeys vim vim-common git tig subversion git-svn iotop iftop htop tree nethogs
-	- sudo pacman -S --noconfirm python python-pip curl xbindkeys vim git tig subversion git-svn iotop iftop htop tree nethogs
+	- sudo pacman -S --noconfirm python python-pip curl xbindkeys vim git tig subversion git-svn iotop iftop htop tree nethogs bind-tools net-tools
 	- sudo pip install virtualenvwrapper
 
 omz:
