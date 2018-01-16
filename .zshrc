@@ -22,6 +22,11 @@ plugins=(git encode64 jsontools redis-cli systemd vagrant debian docker)
 
 source $ZSH/oh-my-zsh.sh
 
+# key bindings
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^H' backward-kill-word
+
 # User configuration
 export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:$HOME/.rbenv/bin:/opt/franz:$PATH"
 export EDITOR=vim
