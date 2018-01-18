@@ -145,11 +145,10 @@
     m:0xd + c:50
     Control+Shift+Alt + Shift_L
 
-
-# asus laptop
+# non mac machines
 "lock"
-    m:0xd + c:46
-    Control+Shift+Alt + l
+    m:0x45 + c:46
+    Control+Shift+Mod4 + l
 
 #################################
 # rescreen
