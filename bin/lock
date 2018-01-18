@@ -1,7 +1,8 @@
 #!/bin/bash
 
+i3lock -c 000000
+
 # gnome-screensaver-command --lock; exit
-i3lock; exit
 
 # lock () {
 #     if [[ $(xrandr | grep $(echo $1) | wc -l) > 0 ]]; then
