@@ -19,6 +19,9 @@ $HOME/bin/logitech-t650-config.sh
 # display config
 sh $HOME/bin/init-display.sh
 
+# auto-detect monitor setup
+srandrd rescreen &
+
 # disable gnome window desktop background
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
@@ -58,6 +61,7 @@ xrdb -merge ~/.Xresources
 
 # allow GTK apps to run even with wayland installed
 #xhost +local:
+
 
 #exec i3 -c ~/.i3/i3status.conf
 exec i3
