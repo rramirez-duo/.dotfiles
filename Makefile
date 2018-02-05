@@ -26,7 +26,7 @@ brother-printer-scanner-arch:
 	sudo pacman -S --noconfirm simple-scan
 	yaourt -S --noconfirm brother-mfc-j615w brscan3
 	# TODO: setup network printer via CUPS command line
-	brsaneconfig3 -a name="living-room-desk" model=MFC-J615W ip=192.168.1.4
+	sudo brsaneconfig3 -a name="living-room-desk" model=MFC-J615W ip=192.168.1.4
 
 
 shutter:
