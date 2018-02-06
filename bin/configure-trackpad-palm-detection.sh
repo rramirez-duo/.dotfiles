@@ -52,7 +52,6 @@ elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
     cat /sys/devices/platform/i8042/serio1/serio2/speed
     echo "trackpoint sensitivity: "
     cat /sys/devices/platform/i8042/serio1/serio2/sensitivity
-
 else
 
     # older thinkpad trackpad config

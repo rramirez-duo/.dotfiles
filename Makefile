@@ -18,7 +18,6 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst
 	sudo apt install -y arandr solaar
-
 arch:
 	sudo pacman -S --noconfirm srandrd inotify-tools lynis clamav rkhunter rtorrent bind-tools net-tools
 
@@ -27,7 +26,6 @@ brother-printer-scanner-arch:
 	yaourt -S --noconfirm brother-mfc-j615w brscan3
 	# TODO: setup network printer via CUPS command line
 	brsaneconfig3 -a name="living-room-desk" model=MFC-J615W ip=192.168.1.4
-
 
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
@@ -250,7 +248,6 @@ keepassxc:
 	sudo add-apt-repository ppa:phoerious/keepassxc
 	sudo apt update
 	sudo apt install -qy keepassxc
-
 
 remmina-arch:
 	sudo pacman -S --noconfirm remmina libvncserver freerdp
