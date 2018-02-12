@@ -41,11 +41,11 @@ elif [[ $hostname == 'XPS-15-9550' ]]; then
         echo 'setting up display for XPS-15-9550'
         xrandr \
             --dpi 96 \
-            --output eDP-1 --mode 1920x1080 --rotate normal \
-            --output HDMI-1 --off \
-            --output HDMI-2 --off \
-            --output DP-1 --off \
-            --output DP-2 --off
+            --output eDP1 --mode 1920x1080 --rotate normal \
+            --output HDMI1 --off \
+            --output HDMI2 --off \
+            --output DP1 --off \
+            --output DP2 --off
     fi
 elif [[ $hostname == 'it-rueben-w520' ]]; then
     echo 'setting up display for newtek w520';
