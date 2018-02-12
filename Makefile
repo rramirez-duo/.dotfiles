@@ -32,6 +32,10 @@ brother-printer-scanner-arch:
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
 
+shutter-arch:
+	#sudo pacman -S --noconfirm libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+	yaourt -S --noconfirm shutter perl-goo-canvas
+
 backlight-deb:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
 	sudo apt-get install -f -y
