@@ -277,3 +277,6 @@ virus-scan: update
 audit: update
 	sudo pacman -S lynis --noconfirm
 	lynis audit system -Q
+
+arch-upgrade-aur-packages:
+	yaourt -Syyua --noconfirm
