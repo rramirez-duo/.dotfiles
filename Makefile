@@ -280,3 +280,6 @@ audit: update
 
 arch-upgrade-aur-packages:
 	yaourt -Syyua --noconfirm
+
+arch-best-pacman-mirrors:
+	sudo pacman-mirros -g
