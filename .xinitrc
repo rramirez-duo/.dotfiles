@@ -64,5 +64,11 @@ udiskie -t &
 # allow GTK apps to run even with wayland installed
 #xhost +local:
 
+# turn off the ethernet to improve battery life
+sudo ip link set enp0s31f6 down
+
+# turn off bluetooth to improve battery life
+sudo rfkill block bluetooth
+
 #exec i3 -c ~/.i3/i3status.conf
 exec i3
