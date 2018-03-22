@@ -8,10 +8,10 @@ xinput set-prop "pointer:Logitech MX Anywhere 2" "libinput Accel Speed" .95 || t
 if [[ $(hostname -f) == "XPS-15-9550" ]]; then
     # XPS 9550 touchpad
     TOUCHPAD="DLL06E4:01 06CB:7A13 Touchpad"
-    xinput set-prop ${TOUCHPAD} "libinput Natural Scrolling Enabled" 1
-    xinput set-prop ${TOUCHPAD} "libinput Click Method Enabled" 0 1
-    xinput set-prop ${TOUCHPAD} "libinput Accel Speed" .55
-    xinput set-prop ${TOUCHPAD} "libinput Tapping Enabled" 0
+    xinput set-prop "${TOUCHPAD}" "libinput Natural Scrolling Enabled" 1
+    xinput set-prop "${TOUCHPAD}" "libinput Click Method Enabled" 0 1
+    xinput set-prop "${TOUCHPAD}" "libinput Accel Speed" .55
+    xinput set-prop "${TOUCHPAD}" "libinput Tapping Enabled" 0
 elif [[ $(hostname -f) == "le-laptop" ]]; then
     # Thinkpad T420
     TOUCHPAD="SynPS/2 Synaptics TouchPad"

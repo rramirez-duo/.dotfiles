@@ -18,6 +18,7 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst
 	sudo apt install -y arandr solaar
+
 arch:
 	sudo pacman -S --noconfirm srandrd inotify-tools lynis clamav rkhunter rtorrent bind-tools net-tools
 
@@ -25,10 +26,14 @@ brother-printer-scanner-arch:
 	sudo pacman -S --noconfirm simple-scan
 	yaourt -S --noconfirm brother-mfc-j615w brscan3
 	# TODO: setup network printer via CUPS command line
-	brsaneconfig3 -a name="living-room-desk" model=MFC-J615W ip=192.168.1.4
+	sudo brsaneconfig3 -a name="living-room-desk" model=MFC-J615W ip=192.168.1.4
 
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+
+shutter-arch:
+	#sudo pacman -S --noconfirm libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+	yaourt -S --noconfirm shutter perl-goo-canvas
 
 backlight-deb:
 	- sudo dpkg -i ~/.dotfiles/pkgs/light_20140713-1_i386.deb
@@ -270,3 +275,9 @@ virus-scan: update
 audit: update
 	sudo pacman -S lynis --noconfirm
 	lynis audit system -Q
+
+arch-upgrade-aur-packages:
+	yaourt -Syyua --noconfirm
+
+arch-best-pacman-mirrors:
+	sudo pacman-mirros -g
