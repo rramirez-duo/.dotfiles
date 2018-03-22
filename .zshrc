@@ -28,7 +28,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word
 
 # User configuration
-export PATH="$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:$HOME/.rbenv/bin:/opt/franz:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$HOME/bin:/usr/local/packer:/opt/jdk1.8.0_112/bin:$HOME/.rbenv/bin:/opt/franz:$PATH"
 export EDITOR=vim
 export PAGER=less
 
