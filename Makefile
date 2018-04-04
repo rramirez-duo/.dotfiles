@@ -172,6 +172,14 @@ adobeSourceCodeProFont:
 		&& rm 1.017R.zip \
 		&& rm -fr source-code-pro-1.017R
 
+adobeSourceCodeProFont-arch:
+	wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip \
+		&& unzip 1.017R.zip \
+		&& sudo mkdir -p /usr/share/fonts/TTF/ \
+		&& sudo cp source-code-pro-1.017R/TTF/*.ttf /usr/share/fonts/TTF/ \
+		&& rm 1.017R.zip \
+		&& rm -fr source-code-pro-1.017R
+
 install-i3-window-manager:
 	#sudo bash -c 'echo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list'
 	sudo apt-get update

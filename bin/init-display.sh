@@ -47,6 +47,19 @@ elif [[ $hostname == 'XPS-15-9550' ]]; then
             --output DP-1 --off \
             --output DP-2 --off
     fi
+elif [[ $hostname == 'home-x220' ]]; then
+    if [[ $HOME_MONITOR == 1 ]]; then
+        sh ~/.screenlayout/home.sh
+    else
+        echo 'setting up display for T470'
+        xrandr \
+            --dpi 96 \
+            --output LVDS1 --mode 1366x768 --rotate normal \
+            --output HDMI1 --off \
+            --output HDMI2 --off \
+            --output DP1 --off \
+            --output DP2 --off
+    fi
 elif [[ $hostname == 'XPS-15-9550' ]]; then
     if [[ $HOME_MONITOR == 1 ]]; then
         sh ~/.screenlayout/home.sh
