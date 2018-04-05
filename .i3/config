@@ -81,7 +81,7 @@ bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s "/home/rramirez
 #bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# focus_follows_mouse no
+focus_follows_mouse yes
 
 # change focus
 bindsym $mod+h focus left
@@ -214,8 +214,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Open applications on specific workspaces
 assign [class="chrome"] $ws1
 assign [class="keepassxc"] $ws9
-assign [class="Skype"] $ws10
-assign [class="Slack"] $ws10
+#assign [class="Skype"] $ws10
+#assign [class="Slack"] $ws10
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -305,28 +305,58 @@ bindsym $mod+Ctrl+L exec --no-startup-id i3lock -c 000000
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
+
+# startup the networm manager applet tray icon
 exec --no-startup-id nm-applet
+
+# automount removable storage
+exec --no-startup-id udiskie -s -a -n
+
+# startup the power manager from the xfce4 project (tray icon for battery percentage remaining is displayed)
 exec --no-startup-id xfce4-power-manager
+
+# display update status (when updates are available; tray icon is red)
 exec --no-startup-id pamac-tray
+
+# start up clipboard manager
 exec --no-startup-id clipit
+
+# run the bluetooth daemon manager manager
 exec --no-startup-id blueman-applet
-exec --no-startup-id redshift -r
+
+# disabling because the t470 screen is already dim as it is..
+#exec --no-startup-id redshift -r
+
+# speed up the keyboard
 exec --no-startup-id xset r rate 250 60
+
+# configure trackpoint and trackpad
 exec --no-startup-id /home/rramirez/bin/configure-trackpad-palm-detection.sh
+
+# setup screen via xrandr
 exec --no-startup-id /home/rramirez/bin/rescreen
+
+# run daemon to auto-reconfigure when additional screens plugged/unplugged
 exec --no-startup-id srandrd /home/rramirez/bin/rescreen &
+
 #exec_always --no-startup-id sbxkb
 #exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker i3lock -c 000000
 exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
-exec --no-startup-id i3-msg 'workspace 10; exec slack'
-exec --no-startup-id i3-msg 'workspace 10; exec skypeforlinux'
+#exec --no-startup-id i3-msg 'workspace 10; exec slack'
+#exec --no-startup-id i3-msg 'workspace 10; exec skypeforlinux'
 # exec --no-startup-id i3-msg 'workspace 7; exec keepassxc'
 exec --no-startup-id shutter --min_at_startup
 exec_always --no-startup-id ff-theme-util
+
+# change the cursor theme
 exec_always --no-startup-id fix_xcursor
+
+# setup my own keyboard shortcuts
 exec_always --no-startup-id xbindkeys -f /home/rramirez/.xbindkeysrc
+
+# toggle the trackpad off
 exec_always --no-startup-id /home/rramirez/bin/trackpad-toggle.sh
 
 # Color palette used for the terminal ( ~/.extend.Xresources file )
