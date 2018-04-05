@@ -6,6 +6,8 @@ echo $hostname
 
 HOME_MONITOR=$(xrandr | egrep -i 'DP.*connected' | egrep -v 'disconnected|eDP' | wc -l)
 
+echo "HOME Monitor present: $HOME_MONITOR"
+
 xrandr --auto
 if [[ $hostname == 'chromebook' ]]; then
     if [[ $HOME_MONITOR == 1 ]]; then
@@ -38,7 +40,7 @@ elif [[ $hostname == 'XPS-15-9550' ]]; then
     if [[ $HOME_MONITOR == 1 ]]; then
         sh ~/.screenlayout/home.sh
     else
-        echo 'setting up display for T470'
+        echo 'setting up display for XPS-15-9550'
         xrandr \
             --dpi 96 \
             --output eDP-1 --mode 1920x1080 --rotate normal \
@@ -46,19 +48,6 @@ elif [[ $hostname == 'XPS-15-9550' ]]; then
             --output HDMI-2 --off \
             --output DP-1 --off \
             --output DP-2 --off
-    fi
-elif [[ $hostname == 'XPS-15-9550' ]]; then
-    if [[ $HOME_MONITOR == 1 ]]; then
-        sh ~/.screenlayout/home.sh
-    else
-        echo 'setting up display for XPS-15-9550'
-        xrandr \
-            --dpi 96 \
-            --output eDP1 --mode 1920x1080 --rotate normal \
-            --output HDMI1 --off \
-            --output HDMI2 --off \
-            --output DP1 --off \
-            --output DP2 --off
     fi
 elif [[ $hostname == 'it-rueben-w520' ]]; then
     echo 'setting up display for newtek w520';
