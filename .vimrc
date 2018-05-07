@@ -61,7 +61,7 @@ autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 autocmd BufNewFile,BufReadPost *.jbuilder set filetype=ruby
 
 " set 2 space tabs when appropriate
-autocmd FileType yaml,json,markdown,ruby,javascript,Rakefile setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml,json,markdown,ruby,js,javascript,Rakefile setlocal shiftwidth=2 tabstop=2 shiftwidth=2 softtabstop=2
 
 " Remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
