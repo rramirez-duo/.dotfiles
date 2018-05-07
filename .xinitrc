@@ -20,13 +20,13 @@ $HOME/bin/logitech-t650-config.sh
 sh $HOME/bin/init-display.sh
 
 # auto-detect monitor setup
-srandrd rescreen &
+srandrd rescreen && nitrogen --restore &
 
 # disable gnome window desktop background
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # setup desktop background
-feh --bg-max /home/rramirez/.dotfiles/desktop-background/minimalism_breaking_bad_walter_white_graphics_vector_93469_1600x900.jpg
+nitrogen /home/rramirez/.dotfiles/desktop-background/minimalism_breaking_bad_walter_white_graphics_vector_93469_1600x900.jpg
 
 # remove blues from screen when night time to help sleep at night
 redshift-gtk -r &
