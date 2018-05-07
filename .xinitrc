@@ -68,7 +68,7 @@ udiskie -t &
 sudo ip link set enp0s31f6 down
 
 # turn off bluetooth to improve battery life
-sh ~/bin/bluetooth-off
+sh /home/rramirez/bin/bluetooth-off
 
 #exec i3 -c ~/.i3/i3status.conf
 exec i3
