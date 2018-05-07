@@ -29,7 +29,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons false
 nitrogen /home/rramirez/.dotfiles/desktop-background/minimalism_breaking_bad_walter_white_graphics_vector_93469_1600x900.jpg
 
 # remove blues from screen when night time to help sleep at night
-redshift-gtk -r &
+redshift-gtk &
 
 # setup gnome-keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
