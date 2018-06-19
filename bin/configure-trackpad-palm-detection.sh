@@ -49,8 +49,8 @@ elif [[ $(hostname -f) == "tpx1" ]]; then
     # best trackpoint settings I've found:
     # source: https://www.reddit.com/r/thinkpad/comments/6hv7zf/any_linux_users_able_to_adjust_trackpoint/dj3e612/
     echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
-    echo 110 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
-    echo 90 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+    echo 130 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
+    echo 65 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
     echo 0 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
 else
 
