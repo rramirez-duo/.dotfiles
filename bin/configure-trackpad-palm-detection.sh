@@ -16,7 +16,7 @@ elif [[ $(hostname -f) == "le-laptop" ]]; then
     # Thinkpad T420
     TOUCHPAD="SynPS/2 Synaptics TouchPad"
     xinput --disable ${TOUCHPAD}
-elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
+elif [[ $(hostname -f) == "tpx1" ]]; then
     set -e -x
     # Thinkpad T470
     TOUCHPAD="SynPS/2 Synaptics TouchPad"
@@ -40,7 +40,7 @@ elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
     xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" 1
     # xinput set-prop "$TOUCHPAD" "libinput Click Methods Available" 0, 1
     xinput --list-props "$TOUCHPAD"
-    xinput --disable "$TOUCHPAD"
+    #xinput --disable "$TOUCHPAD"
 
     TRACKPOINT="TPPS/2 IBM TrackPoint"
     xinput --enable "$TRACKPOINT"
@@ -48,10 +48,10 @@ elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
 
     # best trackpoint settings I've found:
     # source: https://www.reddit.com/r/thinkpad/comments/6hv7zf/any_linux_users_able_to_adjust_trackpoint/dj3e612/
-    echo 128 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
-    echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
-    echo 97 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
-    echo 6 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
+    echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
+    echo 110 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
+    echo 90 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+    echo 0 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
 else
 
     # older thinkpad trackpad config
