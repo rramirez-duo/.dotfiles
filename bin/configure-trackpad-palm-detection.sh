@@ -20,38 +20,19 @@ elif [[ $(hostname -f) == "tpx1" ]]; then
     set -e -x
     # Thinkpad T470
     TOUCHPAD="SynPS/2 Synaptics TouchPad"
-
     xinput --enable "$TOUCHPAD"
-        # # Synaptics Palm Detection: on/off = 1/0
-        # xinput set-prop "$TOUCHPAD" "Synaptics Palm Detection" 1
-        # # Synaptics Palm Dimensions: 2 values: width, z depth
-        # xinput set-prop "$TOUCHPAD" "Synaptics Palm Dimensions" 1, 100
-        # # Synaptics Two-Finger Scrolling: 2 values: verticle, horizontal
-        # xinput set-prop "$TOUCHPAD" "Synaptics Two-Finger Scrolling" 1, 1
-        # # Synaptics Scrolling Distance: 2 values: verticle, horizontal
-        # xinput set-prop "$TOUCHPAD" "Synaptics Scrolling Distance" -85, -85
-        # # Scrolling Finger: 3 values: low, high, pressure
-        # xinput set-prop "$TOUCHPAD" "Synaptics Finger" 40, 50, 0
-        # # Synaptics Move Speed: 4 values: min, max, accel, <deprecated>
-        # xinput set-prop "$TOUCHPAD" "Synaptics Move Speed" 1, 1.55, 1.3, 0
-        # # Synaptics Soft Button Areas: 8 values (provide zeros to disable soft buttons)
-        # xinput set-prop "$TOUCHPAD" "Synaptics Soft Button Areas" 0, 0, 0, 0, 0, 0, 0, 0
-
     xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" 1
-    # xinput set-prop "$TOUCHPAD" "libinput Click Methods Available" 0, 1
-    xinput --list-props "$TOUCHPAD"
+    xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" 0
+    xinput set-prop "$TOUCHPAD" "libinput Click Method Enabled" 0, 1
     xinput --disable "$TOUCHPAD"
 
-    #TRACKPOINT="TPPS/2 IBM TrackPoint"
-    #xinput --enable "$TRACKPOINT"
-    # xinput --list-props "$TRACKPOINT"
+    TRACKPOINT="TPPS/2 Elan TrackPoint"
+    xinput --enable "$TRACKPOINT"
+    xinput --list-props "$TRACKPOINT"
+    xinput set-prop "$TRACKPOINT" "libinput Accel Profile Enabled" 1, 0
+    xinput --set-prop "$TRACKPOINT" "libinput Accel Speed" -.05
 
-    # best trackpoint settings I've found:
-    # source: https://www.reddit.com/r/thinkpad/comments/6hv7zf/any_linux_users_able_to_adjust_trackpoint/dj3e612/
-    echo 190 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
-    echo 180 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
-    echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
-    echo 6 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
+
 else
 
     # older thinkpad trackpad config
@@ -109,3 +90,14 @@ else
     synclient MaxSpeed=1.55
     synclient AccelFactor=1.3
 fi
+
+
+
+# OLDER stuff
+
+# older thinkpads configure trackpoint using:
+# source: https://www.reddit.com/r/thinkpad/comments/6hv7zf/any_linux_users_able_to_adjust_trackpoint/dj3e612/
+# echo 190 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
+# echo 180 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+# echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
+# echo 6 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
