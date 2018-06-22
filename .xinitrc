@@ -26,7 +26,7 @@ sh $HOME/bin/init-display.sh
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # setup desktop background
-feh --bg-scale /home/rramirez/.dotfiles/desktop-background/minimalism_breaking_bad_walter_white_graphics_vector_93469_1600x900.jpg &
+feh --bg-center /home/rramirez/.dotfiles/desktop-background/venn-diagram.png &
 
 # remove blues from screen when night time to help sleep at night
 redshift-gtk &
