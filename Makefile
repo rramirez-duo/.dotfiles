@@ -17,7 +17,7 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt-get install -y acpi lm-sensors
 	sudo apt purge notify-osd
 	sudo apt install -y i3 dunst
-	sudo apt install -y arandr solaar
+	sudo apt install -y arandr solaar blueman
 
 arch:
 	sudo pacman -S --noconfirm srandrd inotify-tools lynis clamav rkhunter rtorrent bind-tools net-tools
