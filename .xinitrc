@@ -13,9 +13,6 @@ killall imwheel
 # faster key repeat
 xset r rate 250 60
 
-# config logitech trackpad
-$HOME/bin/logitech-t650-config.sh
-
 # display config
 sh $HOME/bin/init-display.sh
 
@@ -26,10 +23,7 @@ sh $HOME/bin/init-display.sh
 gsettings set org.gnome.desktop.background show-desktop-icons false
 
 # setup desktop background
-feh --bg-center /home/rramirez/.dotfiles/desktop-background/venn-diagram.png &
-
-# remove blues from screen when night time to help sleep at night
-redshift-gtk &
+feh --bg-fill /home/rramirez/.dotfiles/desktop-background/line_texture_minimalism_blue_72351_1600x900.jpg &
 
 # setup gnome-keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
@@ -40,15 +34,6 @@ bash -c 'eject -i on /dev/sr0'
 
 # setup power saving
 sudo tlp start
-if [[ $(hostname -f) == 'XPS-15-9550' ]]; then
-    sh ~/bin/xps-15-power-saving.sh
-fi
-
-# if machine is a mac
-sh ~/bin/setup-mac.sh
-
-# start network manager applet
-nm-applet &
 
 # fix gnome terminal being able to launch on XPS 15 9550
 dbus-update-activation-environment --all
@@ -66,9 +51,6 @@ udiskie -t &
 
 # turn off the ethernet to improve battery life
 sudo ip link set enp0s31f6 down
-
-# turn off bluetooth to improve battery life
-sh /home/rramirez/bin/bluetooth-off
 
 #exec i3 -c ~/.i3/i3status.conf
 exec i3
