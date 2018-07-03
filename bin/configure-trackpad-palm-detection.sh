@@ -23,5 +23,5 @@ elif [[ $(hostname -f) == "tpx1" ]]; then
     xinput --enable "$TRACKPOINT"
     xinput --list-props "$TRACKPOINT"
     xinput set-prop "$TRACKPOINT" "libinput Accel Profile Enabled" 1, 0
-    xinput --set-prop "$TRACKPOINT" "libinput Accel Speed" -.55
+    xinput --set-prop "$TRACKPOINT" "libinput Accel Speed" 0
 fi
