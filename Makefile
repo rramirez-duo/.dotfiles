@@ -108,6 +108,8 @@ git:
 	- git config --global user.email ruebenramirez@gmail.com
 	- git config --global core.editor vim
 	- git config --global color.ui true
+	# disable the git pager
+	- git config --global --replace-all core.pager "less -F -X"
 
 customBins:
 	if [ ! -d ~/bin/ ]; then \
