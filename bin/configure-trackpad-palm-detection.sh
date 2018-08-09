@@ -52,9 +52,9 @@ elif [[ $(hostname -f) == "rramirez-ThinkPad-T470" ]]; then
     # echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
     # echo 97 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
     # echo 6 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
-    echo 128 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
-    echo 180 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
-    echo 97 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+    echo 120 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
+    echo 140 | sudo tee /sys/devices/platform/i8042/serio1/serio2/rate
+    echo 150 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
     echo 6 | sudo tee /sys/devices/platform/i8042/serio1/serio2/inertia
 else
 

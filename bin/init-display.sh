@@ -23,7 +23,7 @@ if [[ $hostname == 'chromebook' ]]; then
             --output HDMI2 --off \
             --output HDMI1 --off
     fi
-elif [[ $hostname == 'rramirez-ThinkPad-T470' ]]; then
+elif [[ $hostname == 'rramirez-ThinkPad-X1' ]]; then
     if [[ $HOME_MONITOR == 1 ]]; then
         sh ~/.screenlayout/home.sh
     else

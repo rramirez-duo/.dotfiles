@@ -40,9 +40,6 @@ bash -c 'eject -i on /dev/sr0'
 
 # setup power saving
 sudo tlp start
-if [[ $(hostname -f) == 'XPS-15-9550' ]]; then
-    sh ~/bin/xps-15-power-saving.sh
-fi
 
 # if machine is a mac
 sh ~/bin/setup-mac.sh
@@ -66,9 +63,6 @@ udiskie -t &
 
 # turn off the ethernet to improve battery life
 sudo ip link set enp0s31f6 down
-
-# turn off bluetooth to improve battery life
-sudo rfkill block bluetooth
 
 #exec i3 -c ~/.i3/i3status.conf
 exec i3
