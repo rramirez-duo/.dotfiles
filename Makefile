@@ -20,7 +20,7 @@ ubuntu: update dev_packages git vim dotFiles customBins shutter omz
 	sudo apt install -y arandr solaar blueman
 
 arch:
-	sudo pacman -S --noconfirm srandrd inotify-tools lynis clamav rkhunter rtorrent bind-tools net-tools
+	sudo pacman -S --noconfirm srandrd inotify-tools lynis clamav rkhunter rtorrent bind-tools net-tools flameshot
 
 brother-printer-scanner-arch:
 	sudo pacman -S --noconfirm simple-scan
@@ -30,6 +30,7 @@ brother-printer-scanner-arch:
 
 shutter:
 	sudo apt-get install -y libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
+
 
 shutter-arch:
 	#sudo pacman -S --noconfirm libnet-dbus-glib-perl libimage-exiftool-perl libimage-info-perl shutter
