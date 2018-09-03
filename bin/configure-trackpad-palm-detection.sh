@@ -12,6 +12,32 @@ if [[ $(hostname -f) == "XPS-15-9550" ]]; then
     xinput set-prop "${TOUCHPAD}" "libinput Click Method Enabled" 0 1
     xinput set-prop "${TOUCHPAD}" "libinput Accel Speed" .55
     xinput set-prop "${TOUCHPAD}" "libinput Tapping Enabled" 0
+elif [[ $(hostname -f) == "home-x220" ]]; then
+    # Thinkpad X220
+    TOUCHPAD="SynPS/2 Synaptics TouchPad"
+    # enable natural scrolling
+    xinput set-prop "$TOUCHPAD" "libinput Natural Scrolling Enabled" "1"
+    # enable tapping
+    xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" "1"
+
+    # disable tapping
+    #xinput set-prop "$TOUCHPAD" "libinput Tapping Enabled" "0"
+
+    # # Synaptics Palm Detection: on/off = 1/0
+    # xinput set-prop "$TOUCHPAD" "Synaptics Palm Detection" 1
+    # # Synaptics Palm Dimensions: 2 values: width, z depth
+    # xinput set-prop "$TOUCHPAD" "Synaptics Palm Dimensions" 1, 100
+    # # Synaptics Two-Finger Scrolling: 2 values: verticle, horizontal
+    # xinput set-prop "$TOUCHPAD" "Synaptics Two-Finger Scrolling" 1, 1
+    # # Synaptics Scrolling Distance: 2 values: verticle, horizontal
+    # xinput set-prop "$TOUCHPAD" "Synaptics Scrolling Distance" -85, -85
+    # # Scrolling Finger: 3 values: low, high, pressure
+    # xinput set-prop "$TOUCHPAD" "Synaptics Finger" 40, 50, 0
+    # # Synaptics Move Speed: 4 values: min, max, accel, <deprecated>
+    # xinput set-prop "$TOUCHPAD" "Synaptics Move Speed" 1, 1.55, 1.3, 0
+    # # Synaptics Soft Button Areas: 8 values (provide zeros to disable soft buttons)
+    # xinput set-prop "$TOUCHPAD" "Synaptics Soft Button Areas" 0, 0, 0, 0, 0, 0, 0, 0
+
 elif [[ $(hostname -f) == "le-laptop" ]]; then
     # Thinkpad T420
     TOUCHPAD="SynPS/2 Synaptics TouchPad"
