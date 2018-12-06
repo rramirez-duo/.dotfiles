@@ -39,10 +39,10 @@ export SSH_AUTH_SOCK
 bash -c 'eject -i on /dev/sr0'
 
 # setup power saving
-sudo tlp start
-if [[ $(hostname -f) == 'XPS-15-9550' ]]; then
-    sh ~/bin/xps-15-power-saving.sh
-fi
+while true; do \
+    sudo tlp start; \
+    sleep 30; \
+done &
 
 # if machine is a mac
 sh ~/bin/setup-mac.sh
@@ -65,10 +65,13 @@ udiskie -t &
 #xhost +local:
 
 # turn off the ethernet to improve battery life
-sudo ip link set enp0s31f6 down
+sudo ip link set enp0s25 down
 
 # turn off bluetooth to improve battery life
 sh /home/rramirez/bin/bluetooth-off
+
+# setup compose key (menu key) for alt gr special character typing
+setxkbmap -option compose:menu
 
 #exec i3 -c ~/.i3/i3status.conf
 exec i3
